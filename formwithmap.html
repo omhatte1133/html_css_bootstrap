@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form with Map</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+        .container {
+            width: 100%;
+            position: relative;
+        }
+        form {
+            margin-right: 25px;
+        }
+        .contact-form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            position: absolute;
+            top: 200px;
+            left: 100px; /* Increase this value to move the form more to the right */
+            z-index: 1;
+        }
+        .contact-form h2 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        .contact-form input, 
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .contact-form button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #ff7043;
+            color: white;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .contact-form button:hover {
+            background-color: #ff5722;
+        }
+        .map-container {
+            width: 100%;
+            height: 400px;
+            position: relative;
+        }
+        .map {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .content {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 20px;
+            text-align: left;
+            width: 90%;
+        }
+        .content-text {
+            margin-left: 600px; /* Increase this value to move the text more to the right */
+            width: 400px;
+        }
+        .visit-office {
+            text-align: center;
+            padding: 40px 20px;
+            width: 100%;
+        }
+        .visit-office h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .visit-office p {
+            margin-bottom: 30px;
+            color: #666;
+        }
+        .office-locations {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 40px;
+        }
+        .office {
+            text-align: center;
+            max-width: 300px;
+        }
+        .office img {
+            max-width: 100%;
+            height: auto;
+        }
+        .office h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        .office p {
+            margin: 0;
+            font-size: 14px;
+            color: #666;
+        }
+        .office strong {
+            display: block;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        .contact-expert {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f5f5f5;
+            padding: 20px;
+            width: 100%;
+        }
+        .contact-expert-text {
+            margin-right: 20px;
+            text-align: left;
+        }
+        .contact-expert-text h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+        .contact-expert-text p {
+            margin: 5px 0 0;
+            color: #666;
+        }
+        .contact-expert-buttons {
+            display: flex;
+            align-items: center;
+        }
+        .contact-expert-buttons button {
+            padding: 10px 20px;
+            margin-right: 10px;
+            border: none;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .contact-expert-buttons button.contact {
+            background-color: #ff7043;
+            color: #fff;
+            border-color: #ff7043;
+        }
+        .contact-expert-buttons button.contact:hover {
+            background-color: #ff5722;
+            border-color: #ff5722;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="map-container">
+            <iframe class="map" 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3780.8244709856367!2d73.80199007479415!3d18.626963182487366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b9424b44386f%3A0x7bcf6e817a60a636!2sFortune%20Cloud%20Technologies%20Pimpri!5e0!3m2!1smr!2sin!4v1736689731726!5m2!1smr!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                frameborder="0" 
+                allowfullscreen="" 
+                aria-hidden="false" 
+                tabindex="0">
+            </iframe>
+        </div>
+        <div class="contact-form">
+            <h2>Have questions? Get in touch!</h2>
+            <form method="post" action="send-email.php">
+                <label for="name">Your Name</label>
+                <input type="text" name="name" id="name" required>
+                
+                <label for="email">Your Email</label>
+                <input type="email" name="email" id="email" required>
+                
+                <label for="subject">Your mobile</label>
+                <input type="number" name="subject" id="subject" required>
+                
+                <label for="message">Your Message</label>
+                <textarea name="message" id="message" required></textarea>
+                
+                <br>
+                
+                <button>Send</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
